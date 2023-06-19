@@ -6,12 +6,22 @@ console.log(allImg, typeof allImg);
 
 // Ciclo for per concatenare Template Literal
 
+const content = document.querySelector('.content');
 
 for (let i = 0; i < allImg.length; i++) {
     console.log (allImg[i]);
-  
-
+    
+    if (i == 0) {
+    content.innerHTML = content.innerHTML + `
+    <img src="${allImg[i]}" class="active" alt="">`; 
 }
+else {
+    content.innerHTML = content.innerHTML  + `
+    <img src="${allImg[i]}" alt="">`; 
+}
+}
+
+
 
 
 
