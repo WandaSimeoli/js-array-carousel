@@ -6,7 +6,7 @@ console.log(allImg, typeof allImg);
 
 // Ciclo for per concatenare Template Literal
 
-const content = document.querySelector('.content');
+const container = document.querySelector('.content');
 
 let activeElement = 0;
 
@@ -14,20 +14,20 @@ for (let i = 0; i < allImg.length; i++) {
     console.log (allImg[i]);
     
     if (i == 0) {
-    content.innerHTML = content.innerHTML + `
-    <div>
-    <img src="${allImg[i]}" class="active" alt="">
+    container.innerHTML = container.innerHTML + `
+    <div class=" item active">
+    <img src="${allImg[i]}"  alt="">
     </div>`; 
 }
 else {
-    content.innerHTML = content.innerHTML  + `
-    <div>
+    container.innerHTML = container.innerHTML  + `
+    <div class="item">
     <img src="${allImg[i]}" alt="">
     </div>`; 
 }
 }
 
-const allContent = document.querySelectorAll('img');
+const allContent = document.querySelectorAll('.item');
 console.log(allContent, typeof allContent);
  
 
@@ -35,11 +35,11 @@ const postArrow = document.querySelector('.post');
 
 postArrow.addEventListener('click', 
    function () {
-    console.log('click post', activeElement);
-    allContent[activeElement].classList.remove('active');
-
-    console.log('dopo il click', activeElement + 1);
-    allContent [activeElement].classList.add('active');
+    if (activeElement < allContent.length -1) {
+        allContent[activeElement].classList.remove('active');
+        activeElement++;
+        allContent [activeElement].classList.add('active');
+    }   
     }
 );
 
